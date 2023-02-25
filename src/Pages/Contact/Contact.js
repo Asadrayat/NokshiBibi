@@ -3,9 +3,10 @@ import PrimaryButton from '../../Component/PrimeryButton';
 
 const Contact = () => {
     return (
-        <div className="hero ">
-            <div className="hero-content flex-col gap-10 card-body lg:flex-row">
-                <div className="cards flex-shrink-0 w-1/2 ">
+        <div className="hero" style={{ backgroundImage: `url("https://i.ibb.co/bvVD65r/banner.png")` }}>
+            <div className="hero-overlay bg-opacity-60"></div>
+            <div className="hero-content text-center text-neutral-content">
+                <div >
                     <form className='flex flex-col '>
                         <div className="form-control my-4">
                             <label className="input-group">
@@ -28,11 +29,11 @@ const Contact = () => {
                         </div>
                     </form>
                 </div>
-                <div className='text-center'>
-                    
-                </div>
             </div>
         </div>
+
+
+
     );
 };
 

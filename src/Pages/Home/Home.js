@@ -69,7 +69,10 @@ const Home = () => {
                     <Testimonial></Testimonial>
                 </div>
                 <div className='my-24'>
-                   <Contact></Contact>
+                    <div className='text-center'>
+                        <h1 className="text-5xl my-10 text-red-500 font-bold">Contact Us</h1>
+                        <Contact></Contact>
+                    </div>
                 </div>
             </div>
         </div>

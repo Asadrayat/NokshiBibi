@@ -2,70 +2,70 @@
     {
         "title": "Custom Embroidered Pillow",
         "description": "Add a personal touch to your home decor with a custom embroidered pillow featuring your choice of design and thread colors.",
-        "image_url": "https://uaetowel.com/wp-content/uploads/2020/04/White-Custom-Embroidered-Pillow.jpg",
+        "image_url": "https://i.ibb.co/3T6mfgL/Custom-Embroidered-Pillow.jpg",
         "price": 350,
         "id":1
     },
     {
         "title": "Personalized Apron",
         "description": "Cook in style with a personalized apron featuring your choice of design and thread colors.",
-        "image_url": "https://images.uncommongoods.com/images/items/54800/54892_2_640px.jpg",
+        "image_url": "https://i.ibb.co/0q0qnrP/personalisesapron.jpg",
         "price": 300,
         "_id":2
     },
     {
         "title": "Custom Embroidered Towels",
         "description": "Upgrade your bathroom with custom embroidered towels featuring your choice of design and thread colors.",
-        "image_url": "https://media.istockphoto.com/id/1163339438/photo/slavic-embroidered-towels-handmade-embroidered-towels-folk-crafts.jpg?s=170667a&w=0&k=20&c=z9QFJytVKktSz74u3qGAwU-dcuAqxXiQAIQkU1q1btY=",
+        "image_url": "https://i.ibb.co/7pnR4DK/istockphoto-1163339438-170667a.jpg",
         "price": 200,
         "_id":3
     },
     {
         "title": "Personalized Baby Blanket",
         "description": "Make a special keepsake with a personalized baby blanket featuring your choice of design and thread colors.",
-        "image_url": "https://i.ibb.co/WHcKwkH/315327794-659470288960769-1061564561552680095-n.jpg",
+        "image_url": "https://i.ibb.co/7NZsmm3/315327794-659470288960769-1061564561552680095-n.jpg",
         "price": 450,
         "_id":4
     },
     {
         "title": "Custom Embroidered Backpack",
         "description": "Stand out from the crowd with a custom embroidered backpack featuring your choice of design and thread colors.",
-        "image_url": "https://cdn.dribbble.com/users/3129325/screenshots/15134569/media/1b21f138fc27c0df268b6cb26614a5cb.png?compress=1&resize=400x300",
+        "image_url": "https://i.ibb.co/CzsQfbk/1b21f138fc27c0df268b6cb26614a5cb.webp",
         "price": 600,
         "_id":5
     },
     {
         "title": "Personalized Fleece Blanket",
         "description": "Stay cozy with a personalized fleece blanket featuring your choice of design and thread colors.",
-        "image_url": "https://cdn.shopify.com/s/files/1/0012/8299/8385/products/marquise_2b.jpg?v=1557258273",
+        "image_url": "https://i.ibb.co/jr6rpsW/marquise-2b.jpg",
         "price": 500,
         "_id":6
     },
     {
         "title": "Custom Embroidered Canvas Tote",
         "description": "Carry your belongings in style with a custom embroidered canvas tote featuring your choice of design and thread colors.",
-        "image_url": "https://m.media-amazon.com/images/I/618M1q85U5L._SX679_.jpg",
+        "image_url": "https://i.ibb.co/gTGMgWw/618-M1q85-U5-L-SX679.jpg",
         "price": 250,
         "_id":7
     },
     {
         "title": "Personalized Pillowcase",
         "description": "Add a personal touch to your bedroom decor with a personalized pillowcase featuring your choice of design and thread colors.",
-        "image_url": "https://i5.walmartimages.com/asr/1b6d51b0-6dd4-4236-81f7-b54df547b2d3.6ddc7225dbfa66b22c158fe394002e2f.jpeg",
+        "image_url": "https://i.ibb.co/319LBKg/pillowcase.jpg",
         "price": 150,
         "_id":8
     },
     {
         "title": "Custom Embroidered Baseball Cap",
         "description": "Stay cool and stylish with a custom embroidered baseball cap featuring your choice of design and thread colors.",
-        "image_url": "https://i.etsystatic.com/14935487/r/il/09c98d/3683770499/il_fullxfull.3683770499_f6kh.jpg",
+        "image_url": "https://i.ibb.co/qskcWgn/cap.webp",
         "price": 200,
         "_id":9
     },
     {
         "title": "Personalized Mask",
         "description": "Carry your essentials in style with a personalized Mask featuring your choice of design and thread colors.",
-        "image_url": "https://media.glamour.com/photos/5f07850e1e2147b549b98310/3:2/w_2498,h_1665,c_limit/river%20(1).jpg",
+        "image_url": "https://i.ibb.co/L8YpfTb/river-1.webp",
         "price": 300,
         "_id":10
     }
