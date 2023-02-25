@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Lora&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Raleway:ital,wght@0,600;1,500&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -32,6 +38,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
