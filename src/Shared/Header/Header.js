@@ -14,8 +14,6 @@ const Header = () => {
         <>
             <img className='w-20 h-12 mx-9 mt-3' src={logo} alt="Avatar Tailwind CSS Component" srcset="" />
             < li > <Link to='/'>Home</Link></li>
-            < li > <Link to='/blog'>Blog</Link></li>
-
             {
                 user?.email ?
                     <>

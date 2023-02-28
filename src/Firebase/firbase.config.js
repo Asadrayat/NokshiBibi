@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDYxTeVlL3eP2E4JqMYgcA-C-y-4xbyPkc",
-  authDomain: "sunshine-server-a8c08.firebaseapp.com",
-  projectId: "sunshine-server-a8c08",
-  storageBucket: "sunshine-server-a8c08.appspot.com",
-  messagingSenderId: "468812610151",
-  appId: "1:468812610151:web:fab33d9e3208119f4c32c2"
+  apiKey: "AIzaSyB_1ERwYvsiIJvAed5GwpMyeJrM0sGinf0",
+  authDomain: "nokshi-service.firebaseapp.com",
+  projectId: "nokshi-service",
+  storageBucket: "nokshi-service.appspot.com",
+  messagingSenderId: "966691286095",
+  appId: "1:966691286095:web:f9cffa0cdffc7b69884e3a"
 };
 
 // Initialize Firebase

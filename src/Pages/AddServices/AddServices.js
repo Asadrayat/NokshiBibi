@@ -3,6 +3,7 @@ import { AuthContext } from '../../Context/Authprovider/Authprovider';
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { TypeAnimation } from 'react-type-animation';
 const AddServices = () => {
     const { user } = useContext(AuthContext);
     const notify = () => toast("Services Successfully Added!", {
@@ -33,7 +34,7 @@ const AddServices = () => {
             detail: details
 
         }
-        fetch('https://sunshine-server.vercel.app/services', {
+        fetch('http://localhost:5000/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -54,16 +55,26 @@ const AddServices = () => {
     }
     return (
         <div className='py-12'>
-            <form onSubmit={handleAddService}>
-                <h2 className="text-4xl py-4">Add Your Services Here</h2>
-                <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+            <div>
+                
+            </div>
+            <form className='bg-opacity-5 overflow-y-auto' onSubmit={handleAddService} >
+                <h1 className="lg:text-6xl font-bold text-xl my-10 text-red-600 text-center mt-20">
+                    <TypeAnimation
+                        sequence={["Add your service", 3000, '']}
+                        speed={40}
+                        wrapper="h2"
+                        repeat={Infinity}
+                    />
+                </h1>
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'  >
                     <input name="title" type="text" placeholder="Title" className="input input-ghost w-full py-4  input-bordered" />
                     <input name="weight" type="text" placeholder="Weight in Kg" className="input input-ghost w-full  input-bordered" />
                     <input name="photoURL" type="text" placeholder="photoURL" className="input input-ghost w-full  input-bordered" />
                     <input name="fee" type="number" placeholder="Shipping_fee" className="input py-4 input-ghost w-full  input-bordered" />
                 </div>
                 <textarea name="details" className="textarea textarea-bordered h-24 w-full mt-6" placeholder="Service Details" required></textarea>
-                <input className='btn btn-outline btn-warning mt-4' type="submit" value="Add Your Service" onClick={notify} ></input>
+                <input className='btn btn-outline bg-gradient-to-r from-red-900 to-red-600 text-white mt-4' type="submit" value="Add Your Service" onClick={notify} ></input>
                 <ToastContainer position="top-center"
                     autoClose={5000}
                     hideProgressBar={false}

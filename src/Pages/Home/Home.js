@@ -13,7 +13,7 @@ import Contact from '../Contact/Contact';
 const Home = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
-        const url = 'nokshi.json';
+        const url = 'http://localhost:5000/services';
         fetch(url)
             .then(res => res.json())
             .then(data => setServices(data))
@@ -39,7 +39,7 @@ const Home = () => {
             </div>
             <div>
 
-                <h1 className="lg:text-6xl font-bold text-xl text-red-600 text-center mt-20">
+                <h1 className="lg:text-6xl font-bold text-xl text-red-500 text-center mt-20">
                     <TypeAnimation
                         sequence={["The Services we Provide", 3000, '']}
                         speed={40}

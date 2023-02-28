@@ -1,28 +1,74 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import svg from '../assest/logo/signup.webp';
 import { AuthContext } from '../Context/Authprovider/Authprovider';
 const Signup = () => {
-    const { createUser, providerLogin } = useContext(AuthContext);
+    const { createUser, updateUserProfile, providerLogin, setLoading } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+    const [createUserEmail,setCreatedUserEmail] = useState('');
     const from = location.state?.from?.pathname || '/';
 
     const handleSignup = (event) => {
         event.preventDefault();
+        const name = event.target.name.value
         const email = event.target.email.value;
         const password = event.target.password.value;
-        const photoURL = event.target.photoUrl.value;
-        createUser(email, password, photoURL)
-            .then(result => {
-                const user = result.user;
-                console.log(user.photoURL);
+        // upload image 
+        const image = event.target.image.files[0]
+        const formData = new FormData()
+        formData.append('image', image)
+        const url = `https://api.imgbb.com/1/${process.env.IMAGEBB_KEY}`
+        fetch(url, {
+            method: 'POST',
+            body: formData,
+        })
+            .then(res => res.json())
+            .then(imageData => {
+                // Create User
+                createUser(email, password)
+                    .then(result => {
+                        updateUserProfile(name, imageData.data.display_url)
+                        saveUser(email,name,image)
+                            .catch(err => console.log(err))
+                    })
+
+                    .catch(err => {
+                        console.log(err)
+                        setLoading(false)
+                    })
+
                 navigate(from, { replace: true });
+                toast('Signup successful')
 
             })
-            .catch(err => console.error(err));
+            .catch(err => console.log(err))
     }
+    const saveUser = (name, email) => {
+        const user = { name, email };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setCreatedUserEmail(email)
+            })
+    }
+    // createUser(email, password, photoURL)
+    //     .then(result => {
+    //         const user = result.user;
+    //         console.log(user.photoURL);
+    //         navigate(from, { replace: true });
+
+    //     })
+    //     .catch(err => console.error(err));
+
     const googleProvider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () => {
@@ -46,6 +92,12 @@ const Signup = () => {
                         <h1 className="text-5xl font-bold">Signup now!</h1>
                         <div className="form-control">
                             <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input type="text" required placeholder="Enter your name" id='name' name="name" className="input input-bordered" />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="text" required placeholder="email" name="email" className="input input-bordered" />
@@ -66,9 +118,9 @@ const Signup = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Photo URL</span>
+                                <span className="label-text">Upload photo</span>
                             </label>
-                            <input type="text" name="photoUrl" required placeholder="photoUrl" className="input input-bordered" />
+                            <input type="file" name="image" required className="input input-bordered" accept='image/*' />
 
                         </div>
                         <div className="form-control mt-6">

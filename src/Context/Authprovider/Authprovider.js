@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../../Firebase/firbase.config';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const Authprovider = ({ children }) => {
@@ -18,9 +18,22 @@ const Authprovider = ({ children }) => {
         setLoading(true);
         return signInWithPopup(auth, provider)
     }
+    //   3. Email Verify
+    const verifyEmail = () => {
+        setLoading(true)
+        return sendEmailVerification(auth.currentUser)
+    }
+
+    const updateUserProfile = (name, photo) => {
+        setLoading(true)
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo,
+        })
+    }
     const logOut = () => {
         setLoading(true);
-        setTimeout(()=>{
+        setTimeout(() => {
             setLoading(false)
         })
         return signOut(auth);
@@ -50,6 +63,9 @@ const Authprovider = ({ children }) => {
         login,
         logOut,
         providerLogin,
+        setLoading,
+        updateUserProfile,
+        verifyEmail
     }
     return (
         <AuthContext.Provider value={authInfo}>

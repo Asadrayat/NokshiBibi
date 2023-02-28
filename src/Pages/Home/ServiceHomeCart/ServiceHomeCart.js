@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SecondaryButton from '../../../Component/SecondaryButton';
+import PrimaryButton from '../../../Component/PrimeryButton';
 
 const ServiceHomeCart = ({ srvc }) => {
     const { title, description, image_url, _id } = srvc;
@@ -15,7 +15,7 @@ const ServiceHomeCart = ({ srvc }) => {
                     `${description.substring(0, 100)}...` : description
                 }</p>
                 <div className="card-actions  ">
-                    <Link to={`/services/${_id}`}><SecondaryButton > View Details</SecondaryButton></Link>
+                    <Link to={`/services/${_id}`}><PrimaryButton > View Details</PrimaryButton></Link>
                 </div>
             </div>
         </div>
