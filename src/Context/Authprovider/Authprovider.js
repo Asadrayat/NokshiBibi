@@ -18,11 +18,7 @@ const Authprovider = ({ children }) => {
         setLoading(true);
         return signInWithPopup(auth, provider)
     }
-    //   3. Email Verify
-    const verifyEmail = () => {
-        setLoading(true)
-        return sendEmailVerification(auth.currentUser)
-    }
+   
 
     const updateUserProfile = (name, photo) => {
         setLoading(true)
@@ -64,8 +60,7 @@ const Authprovider = ({ children }) => {
         logOut,
         providerLogin,
         setLoading,
-        updateUserProfile,
-        verifyEmail
+        updateUserProfile
     }
     return (
         <AuthContext.Provider value={authInfo}>

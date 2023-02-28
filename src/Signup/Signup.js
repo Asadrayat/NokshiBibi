@@ -5,10 +5,10 @@ import { toast } from 'react-toastify';
 import svg from '../assest/logo/signup.webp';
 import { AuthContext } from '../Context/Authprovider/Authprovider';
 const Signup = () => {
-    const { createUser, updateUserProfile, providerLogin, setLoading } = useContext(AuthContext);
+    const { createUser, updateUserProfile, providerLogin, setLoading, } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
-    const [createUserEmail,setCreatedUserEmail] = useState('');
+    const [signUpError, setSignUPError] = useState('')
     const from = location.state?.from?.pathname || '/';
 
     const handleSignup = (event) => {
@@ -18,64 +18,48 @@ const Signup = () => {
         const password = event.target.password.value;
         // upload image 
         const image = event.target.image.files[0]
-        const formData = new FormData()
-        formData.append('image', image)
-        const url = `https://api.imgbb.com/1/${process.env.IMAGEBB_KEY}`
-        fetch(url, {
-            method: 'POST',
-            body: formData,
-        })
-            .then(res => res.json())
-            .then(imageData => {
-                // Create User
-                createUser(email, password)
-                    .then(result => {
-                        updateUserProfile(name, imageData.data.display_url)
-                        saveUser(email,name,image)
-                            .catch(err => console.log(err))
+        
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setSignUPError('');
+                toast('User Created Successfully.')
+        
+                updateUserProfile(name)
+                    .then(() => {
+                        saveUser(name,email);
+                    
                     })
-
-                    .catch(err => {
-                        console.log(err)
-                        setLoading(false)
-                    })
-
-                navigate(from, { replace: true });
-                toast('Signup successful')
-
+                    .catch(err => console.log(err));
             })
-            .catch(err => console.log(err))
-    }
-    const saveUser = (name, email) => {
-        const user = { name, email };
-        fetch('http://localhost:5000/users', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        })
-            .then(res => res.json())
-            .then(data => {
-                setCreatedUserEmail(email)
+            .catch(error => {
+                console.log(error)
+                setSignUPError(error.message)
+            });
+        const saveUser = (name, email) => {
+            const user = { name, email };
+            fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
             })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    navigate('/');
+                })
+        }
     }
-    // createUser(email, password, photoURL)
-    //     .then(result => {
-    //         const user = result.user;
-    //         console.log(user.photoURL);
-    //         navigate(from, { replace: true });
-
-    //     })
-    //     .catch(err => console.error(err));
 
     const googleProvider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                setLoading(false)
                 navigate(from, { replace: true });
 
             })
@@ -140,6 +124,8 @@ const Signup = () => {
                         <p className="fw-bold">Google SignIn</p>
                     </button>
                     <div>
+                        {signUpError && <p className='text-red-600'>{signUpError}</p>}
+
                         <p className='text-center'>Already have an account? <Link to='/login' className='text-xl  text-orange-600 font-bold'> Login</Link></p>
                     </div>
                 </div>
