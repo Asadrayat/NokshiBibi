@@ -11,7 +11,7 @@ const ServiceHomeCart = ({ srvc }) => {
                 <h2 className="card-title text-red-500 taxt-xl font-bold">
                     {title}
                 </h2>
-                <p> {description.length > 100 ?
+                <p> {description?.length > 100 ?
                     `${description.substring(0, 100)}...` : description
                 }</p>
                 <div className="card-actions  ">

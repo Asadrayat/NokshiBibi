@@ -7,7 +7,7 @@ const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const [myreviews, setMyReviews] = useState([]);
     useEffect(() => {
-        fetch(`https://sunshine-server.vercel.app/reviews?email=${user?.email}`)
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyReviews(data);
@@ -17,7 +17,7 @@ const MyReviews = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete this review');
         if (proceed) {
-            fetch(`https://sunshine-server.vercel.app/reviews/${id}`, {
+            fetch(`http://localhost:5000/reviews/${id}`, {
                 method: 'DELETE',
 
             })
@@ -25,9 +25,9 @@ const MyReviews = () => {
                 .then(data => {
                     console.log(data);
                     if (data.deletedCount > 0) {
-                        alert('deleted successfully');
                         const remaining = myreviews.filter(rvw => rvw._id !== id);
                         setMyReviews(remaining);
+                        alert('deleted successfully');
                     }
                 })
         }

@@ -34,10 +34,10 @@ const Review = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    toast('Added Review Successfully')
                     form.reset();
 
                 }
+                toast('Added Review Successfully')
             })
             .catch(er => console.error(er));
     }

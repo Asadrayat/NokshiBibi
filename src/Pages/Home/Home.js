@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { TypeAnimation } from 'react-type-animation';
-import emb from '../../assest/embro2.png';
 import PrimaryButton from '../../Component/PrimeryButton';
 import About from '../About/About';
 import Testimonial from '../Testimonial/Testimonial';
@@ -10,6 +9,7 @@ import Testimonial from '../Testimonial/Testimonial';
 import ServiceHomeCart from './ServiceHomeCart/ServiceHomeCart';
 import { FaQuoteLeft } from 'react-icons/fa';
 import Contact from '../Contact/Contact';
+import Carousel from './Carousel/Carousel';
 const Home = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
@@ -30,9 +30,9 @@ const Home = () => {
                             <PrimaryButton>Enquire now</PrimaryButton>
                         </div>
                     </div>
-                    <div className="card flex-shrink-0 w-1/2 shadow-2xl ">
+                    <div className="card flex-shrink-0 w-1/2   ">
                         <div className="card-body">
-                            <img src={emb} alt="" />
+                            <Carousel></Carousel>
                         </div>
                     </div>
                 </div>

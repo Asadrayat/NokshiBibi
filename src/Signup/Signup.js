@@ -18,18 +18,16 @@ const Signup = () => {
         const password = event.target.password.value;
         // upload image 
         const image = event.target.image.files[0]
-        
+
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 setSignUPError('');
-                toast('User Created Successfully.')
-        
                 updateUserProfile(name)
                     .then(() => {
-                        saveUser(name,email);
-                    
+                        saveUser(name, email);
+
                     })
                     .catch(err => console.log(err));
             })
@@ -50,6 +48,7 @@ const Signup = () => {
                 .then(data => {
                     console.log(data);
                     navigate('/');
+                    toast('User Created Successfully.')
                 })
         }
     }
@@ -124,7 +123,7 @@ const Signup = () => {
                         <p className="fw-bold">Google SignIn</p>
                     </button>
                     <div>
-                        {signUpError && <p className='text-red-600'>{signUpError}</p>}
+                        {signUpError && <p className='text-red-600 py-5 text-center'>{signUpError}</p>}
 
                         <p className='text-center'>Already have an account? <Link to='/login' className='text-xl  text-orange-600 font-bold'> Login</Link></p>
                     </div>

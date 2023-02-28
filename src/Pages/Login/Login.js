@@ -7,6 +7,7 @@ const Login = () => {
     const { login, providerLogin } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+    const [signUpError, setSignUPError] = useState('')
     const [loginUserEmail, setLoginUserEmail] = useState('');
     const googleProvider = new GoogleAuthProvider();
     const handleGoogleSignIn = () => {
@@ -19,7 +20,7 @@ const Login = () => {
     }
 
     const from = location.state?.from?.pathname || '/';
-    
+
     const handleLogin = (event) => {
         event.preventDefault();
         const email = event.target.email.value;
@@ -32,14 +33,17 @@ const Login = () => {
                     email: user.email
                 }
                 setLoginUserEmail(event.email);
-
+                setSignUPError('');
                 console.log(currentUser);
 
                 navigate(from, { replace: true });
 
 
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                console.log(error)
+                setSignUPError(error.message)
+            });
     }
     return (
         <div className="hero my-12">
@@ -81,6 +85,7 @@ const Login = () => {
 
                         <p className="fw-bold">Google SignIn</p>
                     </button>
+                    {signUpError && <p className='text-red-600 py-5 text'>{signUpError}</p>}
                     <div>
                         <p className='text-center'>Have an account? <Link to='/signup' className='text-xl  text-orange-600 font-bold'> Sign In</Link></p>
                     </div>

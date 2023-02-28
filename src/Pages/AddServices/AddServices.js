@@ -20,7 +20,6 @@ const AddServices = () => {
         event.preventDefault();
         const form = event.target;
         const title = form.title.value;
-        const weight = form.weight.value;
         const photoURL = form.photoURL.value;
         const fee = form.fee.value;
         const details = form.details.value;
@@ -28,8 +27,7 @@ const AddServices = () => {
 
         const services = {
             picture: photoURL,
-            weight: weight,
-            shipping_fee: fee,
+            price: fee,
             title: title,
             detail: details
 
@@ -45,7 +43,6 @@ const AddServices = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Added Review Successfully')
                     form.reset();
 
                 }
@@ -67,11 +64,10 @@ const AddServices = () => {
                         repeat={Infinity}
                     />
                 </h1>
-                <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'  >
+                <div className='grid grid-cols-1 lg:grid-cols mx-auto gap-4'  >
                     <input name="title" type="text" placeholder="Title" className="input input-ghost w-full py-4  input-bordered" />
-                    <input name="weight" type="text" placeholder="Weight in Kg" className="input input-ghost w-full  input-bordered" />
                     <input name="photoURL" type="text" placeholder="photoURL" className="input input-ghost w-full  input-bordered" />
-                    <input name="fee" type="number" placeholder="Shipping_fee" className="input py-4 input-ghost w-full  input-bordered" />
+                    <input name="fee" type="number" placeholder="price" className="input py-4 input-ghost w-full  input-bordered" />
                 </div>
                 <textarea name="details" className="textarea textarea-bordered h-24 w-full mt-6" placeholder="Service Details" required></textarea>
                 <input className='btn btn-outline bg-gradient-to-r from-red-900 to-red-600 text-white mt-4' type="submit" value="Add Your Service" onClick={notify} ></input>
