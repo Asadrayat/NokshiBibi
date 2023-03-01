@@ -26,10 +26,10 @@ const AddServices = () => {
         console.log(title, fee, photoURL);
 
         const services = {
-            picture: photoURL,
+            image_url: photoURL,
             price: fee,
             title: title,
-            detail: details
+            description: details
 
         }
         fetch('http://localhost:5000/services', {
