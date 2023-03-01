@@ -23,7 +23,7 @@ const Review = () => {
             message,
             photo: pic
         }
-        fetch(`http://localhost:5000/reviews?service=${_id}`, {
+        fetch(`https://nokshi-server.vercel.app/reviews?service=${_id}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
