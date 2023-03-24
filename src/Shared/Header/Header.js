@@ -14,17 +14,18 @@ const Header = () => {
         <>
             <img className='w-20 h-12 mx-9 mt-3' src={logo} alt="Avatar Tailwind CSS Component" srcset="" />
             < li > <Link to='/'>Home</Link></li>
+            < li > <Link to='/about'>About us</Link></li>
             {
                 user?.email ?
                     <>
-                        <li><Link to='/addservices'><button className="btn btn-outline btn-warning">Add Services</button></Link></li>
-                        <li><Link to='/myreviews'><button className="btn btn-outline btn-warning">My Review</button></Link></li>
+                        <li><Link to='/addservices'><button >Add Services</button></Link></li>
+                        <li><Link to='/myreviews'><button >My Review</button></Link></li>
                         <li>
-                            <button onClick={handleLogout} className='btn btn-outline mt-3 btn-warning'>Sign Out</button>
+                            <button onClick={handleLogout} className='btn rounded-xl btn-outline mt-3 btn-warning'>Sign Out</button>
                         </li>
                     </>
                     :
-                    <li><Link to='/login'><button className="btn btn-outline btn-warning">Login</button></Link></li>
+                    <li><Link to='/login'><button >Login</button></Link></li>
             }
 
         </>

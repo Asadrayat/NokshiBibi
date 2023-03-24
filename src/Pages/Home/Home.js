@@ -25,12 +25,12 @@ const Home = () => {
                 <div className="hero-content flex-col gap-10 lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-3xl font-bold">Detailed and Elegant</h1>
-                        <h1 className="text-5xl font-bold text-red-500" >Embroidery works</h1>
+                        <h1 className="text-2xl  lg:text-5xl sm:text-3xl font-bold text-red-500" >Embroidery works</h1>
                         <div className='my-5'>
                             <PrimaryButton>Enquire now</PrimaryButton>
                         </div>
                     </div>
-                    <div className="card flex-shrink-0 w-1/2   ">
+                    <div className="card flex-shrink-0 w-full lg:w-1/2 ">
                         <div className="card-body">
                             <Carousel></Carousel>
                         </div>
@@ -49,7 +49,7 @@ const Home = () => {
                 </h1>
             </div>
             <div className='my-24'>
-                <div className='grid lg:grid-cols-3 grid-cols-1 mx-4'>
+                <div className='grid lg:grid-cols-3 grid-cols-1'>
                     {
                         services.map(srvc => <ServiceHomeCart
                             key={srvc._id}
@@ -64,13 +64,13 @@ const Home = () => {
                     <About></About>
                 </div>
                 <div className='my-24'>
-                    <p className='text-5xl font-bold text-red-600 w-full text-center'><FaQuoteLeft></FaQuoteLeft></p>
-                    <p className='text-red-500 text-5xl text-center'>Testimonial</p>
+                    <p className='text-2xl  lg:text-5xl font-bold text-red-600 w-full text-center'><FaQuoteLeft></FaQuoteLeft></p>
+                    <p className='text-red-500 text-2xl  lg:text-5xl text-center'>Testimonial</p>
                     <Testimonial></Testimonial>
                 </div>
-                <div className='my-24'>
+                <div className='my-24 w-3/4 mx-auto lg:w-full'>
                     <div className='text-center'>
-                        <h1 className="text-5xl my-10 text-red-500 font-bold">Contact Us</h1>
+                        <h1 className="text-2xl  lg:text-5xl my-10 text-red-500 font-bold">Contact Us</h1>
                         <Contact></Contact>
                     </div>
                 </div>

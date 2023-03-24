@@ -5,7 +5,7 @@ import PrimaryButton from '../../../Component/PrimeryButton';
 const ServiceCart = ({ service }) => {
     const { title, description, image_url, _id } = service;
     return (
-        <div className="card w-96 bg-base-100 gap-10 my-8 shadow-xl">
+        <div className="card w-full lg:w-96 bg-base-100 gap-10 my-8 shadow-xl">
             <figure><img className='h-56 w-full' src={image_url} alt="img" /></figure>
             <div className="card-body">
                 <h2 className="card-title text-red-500 taxt-xl font-bold">

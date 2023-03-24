@@ -55,7 +55,7 @@ const AddServices = () => {
             <div>
                 
             </div>
-            <form className='bg-opacity-5 overflow-y-auto' onSubmit={handleAddService} >
+            <form className='bg-opacity-5 w-3/4 mx-auto lg:w-1/2 overflow-y-auto' onSubmit={handleAddService} >
                 <h1 className="lg:text-6xl font-bold text-xl my-10 text-red-600 text-center mt-20">
                     <TypeAnimation
                         sequence={["Add your service", 3000, '']}

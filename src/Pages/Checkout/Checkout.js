@@ -8,7 +8,7 @@ import Reviewdetail from '../Reviewdetail/Reviewdetail';
 const Checkout = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
-  const { title, _id, description, image_url, price } = useLoaderData();
+  const { title, description, image_url, price } = useLoaderData();
 
   return (
     <div>
@@ -23,9 +23,9 @@ const Checkout = () => {
           />
         </h1>
       </div>
-      <div className="hero p-16">
+      <div className="hero lg:p-16 w-full">
         <div className="hero-content flex-col gap-10 lg:flex-col">
-          <img src={image_url} alt='img' className=" rounded-lg max-w-2xl shadow-2xl" />
+          <img src={image_url} alt='img' className=" rounded-lg w-full lg:max-w-2xl shadow-2xl" />
           <div>
             <p className="py-6 opacity-70 ">{description}</p>
             <p className="opacity-70 text-xl ">Price: {price}BDT</p>
@@ -33,7 +33,7 @@ const Checkout = () => {
         </div>
       </div>
       <div className=' p-6 my-12'>
-        {/* <p className='lg:text-5xl text-2xl text-center font-bold'>Review of {title}</p> */}
+        {/* <p className='lg:text-2xl  lg:text-5xl text-2xl text-center font-bold'>Review of {title}</p> */}
         <h1 className="lg:text-6xl font-bold text-xl text-red-500 text-center mt-20">
           <TypeAnimation
             sequence={[`Review of ${title}`, 3000, '']}
