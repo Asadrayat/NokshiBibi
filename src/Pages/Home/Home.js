@@ -10,6 +10,7 @@ import ServiceHomeCart from './ServiceHomeCart/ServiceHomeCart';
 import { FaQuoteLeft } from 'react-icons/fa';
 import Contact from '../Contact/Contact';
 import Carousel from './Carousel/Carousel';
+import ModernPattern from '../ModernPattern/ModernPattern';
 const Home = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
@@ -59,6 +60,10 @@ const Home = () => {
                 </div>
                 <div className='flex justify-center my-16'>
                     <Link to='services'><PrimaryButton className='btn btn-warning'>See All Services</PrimaryButton></Link>
+                </div>
+                <div className='my-24'>
+				<p className='text-red-500 text-2xl  lg:text-5xl text-center'>8 Modern Hand Embroidery Patterns</p>
+				<ModernPattern></ModernPattern>
                 </div>
                 <div className='my-24'>
                     <About></About>

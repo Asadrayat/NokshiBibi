@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "nokshi-service"
-  }
+    "default": "nokshi-service",
+    "y": "nokshi-service"
+  },
+  "targets": {},
+  "etags": {}
 }
