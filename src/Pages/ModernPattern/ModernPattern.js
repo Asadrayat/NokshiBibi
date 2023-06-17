@@ -67,9 +67,9 @@ const cardData = [
 ];
 const ModernPattern = () => {
   return (
-    <div className="card-container grid grid-cols-3 gap-8 my-16" >
+    <div className="card-container grid grid-cols-4 gap-8 my-16" >
       {cardData.map((card) => (
-        <div className="card w-96 bg-base-100 border rounded-full shadow-xl">
+        <div className="card w-80 bg-base-100 border rounded-full shadow-xl">
           <figure className="px-10 pt-10">
             <img
               src={card.image}
